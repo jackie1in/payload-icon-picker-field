@@ -1,6 +1,7 @@
-import type { FieldClientComponent, StaticDescription, StaticLabel, TextFieldClient, TextFieldValidation } from 'payload'
-import type { ChangeEvent } from 'react'
-import type React from 'react'
+import dynamicIconImports from 'lucide-react/dynamicIconImports';
+import type { FieldClientComponent, StaticDescription, StaticLabel, TextFieldClient, TextFieldValidation } from 'payload';
+import type React from 'react';
+import { ChangeEvent } from 'react';
 import type { MarkOptional } from 'ts-essentials';
 
 export type SharedIconPickerFieldProps =
@@ -16,7 +17,6 @@ export type IconPickerInputProps = {
   readonly Description?: React.ReactNode
   readonly description?: StaticDescription
   readonly Error?: React.ReactNode
-  readonly icons?: Record<string, string>
   readonly inputRef?: React.RefObject<HTMLInputElement>
   readonly Label?: React.ReactNode
   readonly label?: StaticLabel
@@ -29,7 +29,7 @@ export type IconPickerInputProps = {
   readonly rtl?: boolean
   readonly showError?: boolean
   readonly style?: React.CSSProperties
-  readonly value?: string
+  readonly value?: keyof typeof dynamicIconImports
 } & SharedIconPickerFieldProps
 
 type IconPickerFieldClientWithoutType = MarkOptional<TextFieldClient, 'type'>;

@@ -73,6 +73,7 @@ const IconPickerField: IconPickerFieldClientComponent = (props) => {
       className={className}
       Description={Description}
       description={description}
+      placeholder={placeholder}
       Error={Error}
       inputRef={inputRef}
       Label={Label}

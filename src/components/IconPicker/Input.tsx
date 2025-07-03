@@ -4,7 +4,8 @@ import type { ChangeEvent } from 'react'
 import { getTranslation } from '@payloadcms/translations'
 import { fieldBaseClass, FieldDescription, FieldError, FieldLabel, RenderCustomComponent, useDebounce, useTranslation } from '@payloadcms/ui'
 import React, { useEffect, useState } from 'react'
-
+import { LucideProps, LucideIcon } from 'lucide-react'
+import { DynamicIcon, IconName } from 'lucide-react/dynamic'
 import type { IconPickerInputProps } from './types'
 
 const baseClass = 'icon'
@@ -108,7 +109,7 @@ export const IconPickerInput: React.FC<IconPickerInputProps> = (props) => {
         >
           {!rtl && (
             <div className={`${baseClass}__icon-preview`} onClick={() => setFieldIsFocused(true)}>
-              <span dangerouslySetInnerHTML={{ __html: (value && icons && icons[value]) || '' }} />
+              <Icon name={value} /> {value}
             </div>
           )}
           <input
@@ -125,7 +126,7 @@ export const IconPickerInput: React.FC<IconPickerInputProps> = (props) => {
           />
           {rtl && (
             <div className={`${baseClass}__icon-preview`} onClick={() => setFieldIsFocused(true)}>
-              <span dangerouslySetInnerHTML={{ __html: (value && icons && icons[value]) || '' }} />
+              <Icon name={value} /> {value}
             </div>
           )}
           {fieldIsFocused && (
@@ -164,11 +165,7 @@ export const IconPickerInput: React.FC<IconPickerInputProps> = (props) => {
                         }`}
                       key={index}
                     >
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: (icon && icons && icons[icon]) || '',
-                        }}
-                      />
+                      <Icon name={value} /> {value}
                     </div>
                   ))}
                 {typeof filteredIcons === 'object' && Object.keys(filteredIcons as Record<string, string>).length == 0 && (
@@ -198,3 +195,14 @@ export const IconPickerInput: React.FC<IconPickerInputProps> = (props) => {
     </div>
   )
 }
+
+interface IconProps extends Omit<LucideProps, 'ref'> {
+  name: IconName
+}
+
+const Icon = React.forwardRef<React.ComponentRef<LucideIcon>, IconProps>(
+  ({ name, ...props }, ref) => {
+    return <DynamicIcon name={name} {...props} ref={ref} />
+  },
+)
+Icon.displayName = 'Icon'

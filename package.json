@@ -24,19 +24,24 @@
   ],
   "author": "support@innovixx.co.uk",
   "license": "MIT",
+    "dependencies": {
+        "lucide-react": "^0.475.0"
+  },
   "peerDependencies": {
     "next": "^15.0.0",
     "payload": "^3.2.2",
-    "react": "^19.0.0"
+    "react": "^19.1.0"
+
   },
+
   "devDependencies": {
     "@payloadcms/eslint-config": "^3.0.0",
     "@payloadcms/next": "3.16.0",
     "@payloadcms/translations": "3.16.0",
     "@payloadcms/ui": "3.16.0",
     "@types/node": "^20.14.14",
-    "@types/react": "19.0.0",
-    "@types/react-dom": "19.0.0",
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.2",
     "@typescript-eslint/eslint-plugin": "5.12.1",
     "@typescript-eslint/parser": "5.12.1",
     "copyfiles": "^2.4.1",
@@ -45,8 +50,8 @@
     "nodemon": "^2.0.6",
     "payload": "3.16.0",
     "prettier": "^2.7.1",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "ts-essentials": "^10.0.3",
     "ts-node": "^9.1.1",
     "typescript": "5.7.2"
@@ -67,5 +72,6 @@
       "types": "./dist/components/index.d.ts",
       "default": "./dist/components/index.js"
     }
-  }
+  },
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
 }
